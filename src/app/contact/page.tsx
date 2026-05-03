@@ -10,18 +10,18 @@ import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Sparkles } from "lucid
 import { fadeUp } from "@/lib/animations";
 
 const schema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Valid email required"),
+  name:    z.string().min(2, "Name is required"),
+  email:   z.string().email("Valid email required"),
   subject: z.string().min(3, "Subject is required"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 type FormData = z.infer<typeof schema>;
 
 const contactInfo = [
-  { icon: Mail,   label: "Email",           value: "hello@pixelora.com",     href: "mailto:hello@pixelora.com" },
-  { icon: Phone,  label: "Phone / WhatsApp", value: "+254 700 000 000",      href: "https://wa.me/254700000000" },
-  { icon: MapPin, label: "Location",         value: "Nairobi, Kenya",         href: "https://maps.google.com/?q=Nairobi,Kenya" },
-  { icon: Clock,  label: "Business Hours",   value: "Mon–Fri, 8AM – 6PM EAT", href: null },
+  { icon: Mail,   label: "Email",            value: "hello@pixelora.com",      href: "mailto:hello@pixelora.com" },
+  { icon: Phone,  label: "Phone / WhatsApp", value: "+254 700 000 000",        href: "https://wa.me/254700000000" },
+  { icon: MapPin, label: "Location",         value: "Nairobi, Kenya",          href: "https://maps.google.com/?q=Nairobi,Kenya" },
+  { icon: Clock,  label: "Business Hours",   value: "Mon–Fri, 8AM – 6PM EAT",  href: null },
 ];
 
 const InstagramIcon = () => (
@@ -41,14 +41,14 @@ const LinkedInIcon = () => (
 );
 
 const socials = [
-  { Icon: InstagramIcon, label: "Instagram", href: "#" },
-  { Icon: TwitterIcon,   label: "Twitter / X", href: "#" },
-  { Icon: LinkedInIcon,  label: "LinkedIn", href: "#" },
+  { Icon: InstagramIcon, href: "#", label: "Instagram" },
+  { Icon: TwitterIcon,   href: "#", label: "Twitter / X" },
+  { Icon: LinkedInIcon,  href: "#", label: "LinkedIn" },
 ];
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [sent, setSent]       = useState(false);
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
 
@@ -72,18 +72,16 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-24 px-6 relative overflow-hidden">
+    <div className="min-h-screen pt-36 pb-32 relative overflow-hidden">
       <div className="orb orb-purple w-96 h-96 -top-20 -left-20 opacity-30" />
-      <div className="orb orb-cyan   w-80 h-80 bottom-20 right-0 opacity-20" />
+      <div className="orb orb-cyan   w-80 h-80 bottom-20 right-0  opacity-20" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto px-8 lg:px-12">
 
         {/* Header */}
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-16">
-          <span className="section-badge">
-            <MessageSquare className="w-3 h-3" /> Contact
-          </span>
-          <h1 className="font-display tracking-display text-5xl md:text-6xl font-black mb-5">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-20">
+          <span className="section-badge"><MessageSquare className="w-3 h-3" /> Contact</span>
+          <h1 className="font-display tracking-display text-5xl md:text-6xl font-black mb-6">
             Let&apos;s <span className="gradient-text">Talk</span>
           </h1>
           <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto leading-relaxed">
@@ -95,25 +93,17 @@ export default function ContactPage() {
 
           {/* ── Left: Info column ── */}
           <div className="lg:col-span-2 space-y-4">
-
-            {/* Contact cards — consistent brand purple for all icons */}
             {contactInfo.map((info, i) => (
-              <motion.div
-                key={info.label}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="glass-card p-5 flex items-center gap-4 group hover:scale-[1.015] transition-transform duration-300"
-              >
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-[0_4px_16px_rgba(147,51,234,0.35)]">
-                  <info.icon className="w-4.5 h-4.5 text-white" />
+              <motion.div key={info.label} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                className="glass-card p-6 flex items-center gap-5 group hover:scale-[1.015] transition-transform duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-[0_4px_16px_rgba(147,51,234,0.35)]">
+                  <info.icon className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-[var(--text-muted)] text-[0.7rem] uppercase tracking-wider mb-0.5">{info.label}</div>
+                  <div className="text-[var(--text-muted)] text-[0.7rem] uppercase tracking-wider mb-1">{info.label}</div>
                   {info.href ? (
-                    <a href={info.href} target="_blank" rel="noopener noreferrer" className="text-white font-medium text-sm hover:text-[var(--color-primary-light)] transition-colors">
+                    <a href={info.href} target="_blank" rel="noopener noreferrer"
+                      className="text-white font-medium text-sm hover:text-[var(--color-primary-light)] transition-colors">
                       {info.value}
                     </a>
                   ) : (
@@ -124,18 +114,13 @@ export default function ContactPage() {
             ))}
 
             {/* Socials */}
-            <motion.div custom={4} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="glass-card p-6">
-              <h3 className="text-white font-semibold mb-4 text-xs uppercase tracking-[0.1em] font-display">
-                Follow Us
-              </h3>
+            <motion.div custom={4} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="glass-card p-6">
+              <h3 className="text-white font-semibold mb-5 text-xs uppercase tracking-[0.12em] font-display">Follow Us</h3>
               <div className="flex gap-3">
                 {socials.map(({ Icon, label, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--color-primary-light)] hover:scale-110 transition-all duration-200"
-                  >
+                  <a key={label} href={href} aria-label={label}
+                    className="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--color-primary-light)] hover:scale-110 transition-all duration-200">
                     <Icon />
                   </a>
                 ))}
@@ -143,83 +128,71 @@ export default function ContactPage() {
             </motion.div>
 
             {/* Response time */}
-            <motion.div custom={5} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="gradient-border">
-              <div className="gradient-border-inner rounded-[19px] p-6 text-center">
-                <div className="font-display text-4xl font-black gradient-text mb-1 tracking-tight">&lt; 24h</div>
+            <motion.div custom={5} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+              className="gradient-border">
+              <div className="gradient-border-inner rounded-[19px] p-7 text-center">
+                <div className="font-display text-5xl font-black gradient-text mb-2 tracking-tight">&lt; 24h</div>
                 <div className="text-[var(--text-secondary)] text-sm">Average response time</div>
               </div>
             </motion.div>
           </div>
 
           {/* ── Right: Form ── */}
-          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="lg:col-span-3 glass-card p-8 md:p-10">
+          <motion.div custom={2} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+            className="lg:col-span-3 glass-card p-8 md:p-12">
             {sent ? (
-              <div className="flex flex-col items-center justify-center h-full py-16 text-center">
+              <div className="flex flex-col items-center justify-center h-full py-20 text-center">
                 <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ ease: [0.34, 1.56, 0.64, 1] }}>
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center mx-auto mb-5 shadow-[0_0_30px_rgba(147,51,234,0.5)]">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(147,51,234,0.5)]">
                     <Send className="w-7 h-7 text-white" />
                   </div>
                 </motion.div>
-                <h3 className="font-display text-2xl font-bold mb-2">Message Sent!</h3>
-                <p className="text-[var(--text-secondary)] mb-7 max-w-xs mx-auto text-sm leading-relaxed">
+                <h3 className="font-display text-2xl font-bold mb-3">Message Sent!</h3>
+                <p className="text-[var(--text-secondary)] mb-8 max-w-xs mx-auto text-sm leading-relaxed">
                   Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                 </p>
-                <button onClick={() => setSent(false)} className="btn-gradient px-6 py-3 rounded-full text-sm">
+                <button onClick={() => setSent(false)} className="btn-gradient px-7 py-3.5 rounded-full text-sm">
                   <span>Send Another Message</span>
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-
-                {/* Name + Email */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-7">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm text-[var(--text-secondary)] mb-2 font-medium">
+                    <label className="block text-sm text-[var(--text-secondary)] mb-2.5 font-medium">
                       Name <span className="text-[var(--color-primary-light)]">*</span>
                     </label>
                     <input id="contact-name" {...register("name")} placeholder="John Doe" className="form-input" />
-                    {errors.name && <p className="text-red-400 text-xs mt-1.5">{errors.name.message}</p>}
+                    {errors.name && <p className="text-red-400 text-xs mt-2">{errors.name.message}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm text-[var(--text-secondary)] mb-2 font-medium">
+                    <label className="block text-sm text-[var(--text-secondary)] mb-2.5 font-medium">
                       Email <span className="text-[var(--color-primary-light)]">*</span>
                     </label>
                     <input id="contact-email" {...register("email")} type="email" placeholder="you@example.com" className="form-input" />
-                    {errors.email && <p className="text-red-400 text-xs mt-1.5">{errors.email.message}</p>}
+                    {errors.email && <p className="text-red-400 text-xs mt-2">{errors.email.message}</p>}
                   </div>
                 </div>
 
-                {/* Subject */}
                 <div>
-                  <label className="block text-sm text-[var(--text-secondary)] mb-2 font-medium">
+                  <label className="block text-sm text-[var(--text-secondary)] mb-2.5 font-medium">
                     Subject <span className="text-[var(--color-primary-light)]">*</span>
                   </label>
                   <input id="contact-subject" {...register("subject")} placeholder="What's this about?" className="form-input" />
-                  {errors.subject && <p className="text-red-400 text-xs mt-1.5">{errors.subject.message}</p>}
+                  {errors.subject && <p className="text-red-400 text-xs mt-2">{errors.subject.message}</p>}
                 </div>
 
-                {/* Message */}
                 <div>
-                  <label className="block text-sm text-[var(--text-secondary)] mb-2 font-medium">
+                  <label className="block text-sm text-[var(--text-secondary)] mb-2.5 font-medium">
                     Message <span className="text-[var(--color-primary-light)]">*</span>
                   </label>
-                  <textarea
-                    id="contact-message"
-                    {...register("message")}
-                    rows={6}
-                    placeholder="Tell us about your project or ask us anything…"
-                    className="form-input resize-none"
-                  />
-                  {errors.message && <p className="text-red-400 text-xs mt-1.5">{errors.message.message}</p>}
+                  <textarea id="contact-message" {...register("message")} rows={6}
+                    placeholder="Tell us about your project or ask us anything…" className="form-input resize-none" />
+                  {errors.message && <p className="text-red-400 text-xs mt-2">{errors.message.message}</p>}
                 </div>
 
-                {/* Submit */}
-                <button
-                  id="contact-submit"
-                  type="submit"
-                  disabled={loading}
-                  className="btn-gradient w-full py-4 rounded-full text-sm disabled:opacity-60 disabled:cursor-not-allowed"
-                >
+                <button id="contact-submit" type="submit" disabled={loading}
+                  className="btn-gradient w-full py-4 rounded-full text-sm disabled:opacity-60 disabled:cursor-not-allowed">
                   <span className="flex items-center justify-center gap-2">
                     {loading ? (
                       <>
