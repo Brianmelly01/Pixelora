@@ -72,7 +72,7 @@ export default function OrderPage() {
     return (
       <div className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
         <div className="orb orb-purple w-96 h-96 top-1/4 left-1/4 opacity-30" />
-        <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ ease: [0.34, 1.56, 0.64, 1] }} className="text-center max-w-lg">
+        <motion.div initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }} transition={{ ease: [0.34, 1.56, 0.64, 1] as const }} className="text-center max-w-lg">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center mx-auto mb-7 shadow-[0_0_40px_rgba(147,51,234,0.5)]">
             <CheckCircle className="w-10 h-10 text-white" />
           </div>
