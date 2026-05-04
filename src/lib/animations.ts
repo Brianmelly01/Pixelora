@@ -9,7 +9,7 @@ export const fadeUp: Variants = {
     transition: {
       duration: 0.55,
       delay: i * 0.09,
-      ease: [0.25, 0.46, 0.45, 0.94],
+      ease: [0.25, 0.46, 0.45, 0.94] as const,
     },
   }),
 };
@@ -33,7 +33,7 @@ export const slideLeft: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -43,7 +43,7 @@ export const slideRight: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -56,7 +56,7 @@ export const scaleIn: Variants = {
     transition: {
       duration: 0.45,
       delay: i * 0.06,
-      ease: [0.34, 1.56, 0.64, 1],
+      ease: [0.34, 1.56, 0.64, 1] as const,
     },
   }),
 };
@@ -81,7 +81,7 @@ export const heroText: Variants = {
     transition: {
       duration: 0.7,
       delay: i * 0.12,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   }),
 };

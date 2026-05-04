@@ -142,7 +142,7 @@ export default function ContactPage() {
             className="lg:col-span-3 glass-card p-8 md:p-12">
             {sent ? (
               <div className="flex flex-col items-center justify-center h-full py-20 text-center">
-                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ ease: [0.34, 1.56, 0.64, 1] }}>
+                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ ease: [0.34, 1.56, 0.64, 1] as const }}>
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(147,51,234,0.5)]">
                     <Send className="w-7 h-7 text-white" />
                   </div>

@@ -3,14 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Sparkles, Star, Zap, Users, Award, Clock, CheckCircle2, ChevronRight, Quote, Shirt, Palette, Package, Wand2 } from "lucide-react";
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: (i = 0) => ({
-    opacity: 1, y: 0,
-    transition: { delay: i * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
+import { fadeUp } from "@/lib/animations";
 
 const services = [
   { icon: Shirt,   title: "Clothing Printing", desc: "DTF, screen printing & embroidery on any fabric. Bulk orders with express 48h turnaround.", color: "from-violet-600 to-purple-700", glow: "rgba(124,58,237,0.3)",  tag: "Most Popular" },
