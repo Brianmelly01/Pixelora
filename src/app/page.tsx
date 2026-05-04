@@ -13,10 +13,10 @@ const services = [
 ];
 
 const stats = [
-  { value: "500+",   label: "Happy Clients",   icon: Users, color: "text-violet-400" },
-  { value: "1,200+", label: "Projects Done",    icon: Award, color: "text-blue-400" },
-  { value: "48h",    label: "Avg. Turnaround",  icon: Clock, color: "text-cyan-400" },
-  { value: "4.9★",   label: "Client Rating",    icon: Star,  color: "text-amber-400" },
+  { value: "500+",   label: "Happy Clients",  icon: Users, color: "text-violet-400" },
+  { value: "1,200+", label: "Projects Done",   icon: Award, color: "text-blue-400" },
+  { value: "48h",    label: "Avg. Turnaround", icon: Clock, color: "text-cyan-400" },
+  { value: "4.9★",   label: "Client Rating",   icon: Star,  color: "text-amber-400" },
 ];
 
 const whyUs = [
@@ -29,17 +29,20 @@ const whyUs = [
 ];
 
 const testimonials = [
-  { name: "Amara Osei",       role: "CEO, NovaBrand",   text: "Pixelora completely transformed our brand identity. The attention to detail and speed of delivery is absolutely unmatched.",         grad: "from-violet-600 to-blue-600",  av: "AO" },
-  { name: "James Mwangi",     role: "Event Organiser",  text: "Ordered 300 custom t-shirts for our festival. Quality was incredible, delivery was on time, and the team was a joy to work with.",   grad: "from-blue-600 to-cyan-500",    av: "JM" },
-  { name: "Fatima Al-Rashid", role: "Fashion Designer", text: "They understood my vision perfectly on the first try. Their creative instinct is rare. I will be working with Pixelora again and again.", grad: "from-pink-600 to-violet-600",  av: "FA" },
+  { name: "Amara Osei",       role: "CEO, NovaBrand",   text: "Pixelora completely transformed our brand identity. The attention to detail and speed of delivery is absolutely unmatched.",          grad: "from-violet-600 to-blue-600", av: "AO" },
+  { name: "James Mwangi",     role: "Event Organiser",  text: "Ordered 300 custom t-shirts for our festival. Quality was incredible, delivery was on time, and the team was a joy to work with.",    grad: "from-blue-600 to-cyan-500",   av: "JM" },
+  { name: "Fatima Al-Rashid", role: "Fashion Designer", text: "They understood my vision perfectly on the first try. Their creative instinct is rare. I will be working with Pixelora again and again.", grad: "from-pink-600 to-violet-600", av: "FA" },
 ];
+
+/* ── shared layout tokens ── */
+const CONTAINER = "max-w-6xl mx-auto px-6 sm:px-10 lg:px-14";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen overflow-x-hidden">
 
       {/* ══ HERO ══ */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6 pt-32 pb-20">
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6 pt-40 pb-24">
         <div className="orb orb-violet  w-[700px] h-[700px] top-[-250px] left-[-180px] opacity-35" />
         <div className="orb orb-blue   w-[550px] h-[550px] top-[-150px] right-[-160px] opacity-25" />
         <div className="orb orb-pink   w-[350px] h-[350px] bottom-[-80px] left-1/2 -translate-x-1/2 opacity-20" />
@@ -51,21 +54,20 @@ export default function HomePage() {
           <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible" className="flex justify-center">
             <span className="section-badge">
               <Sparkles className="w-3 h-3" />
-              Creative Design & Printing Studio · Nairobi
+              Creative Design &amp; Printing Studio · Nairobi
             </span>
           </motion.div>
 
           <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible"
-            className="font-display text-[3.2rem] sm:text-[4.8rem] md:text-[6rem] lg:text-[7rem] font-extrabold leading-[0.95] tracking-[-0.04em] mb-8 text-balance">
-            From{" "}
-            <span className="gradient-text">Pixel</span>
+            className="font-display text-[3rem] sm:text-[4.5rem] md:text-[5.8rem] lg:text-[7rem] font-extrabold leading-[0.95] tracking-[-0.04em] mb-8 text-balance">
+            From{" "}<span className="gradient-text">Pixel</span>
             <br />to Product
           </motion.h1>
 
           <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible"
             className="text-[var(--text-muted)] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-body">
             We transform your boldest ideas into stunning physical products.
-            Custom clothing, branding, merch & creative designs — all under one roof.
+            Custom clothing, branding, merch &amp; creative designs — all under one roof.
           </motion.p>
 
           <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible"
@@ -100,12 +102,11 @@ export default function HomePage() {
       </section>
 
       {/* ══ SERVICES ══ */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="orb orb-blue w-[400px] h-[400px] -right-20 top-20 opacity-18" />
-        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
-
+        <div className={CONTAINER}>
           <motion.div custom={0} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="text-center mb-18">
+            className="text-center mb-16">
             <span className="section-badge"><Zap className="w-3 h-3" /> What We Do</span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[-0.04em] mb-5">
               Services Built for <br className="hidden sm:block" />
@@ -140,9 +141,9 @@ export default function HomePage() {
       </section>
 
       {/* ══ WHY US ══ */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="orb orb-cyan w-[380px] h-[380px] -left-20 top-0 opacity-15" />
-        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className={CONTAINER}>
           <div className="gradient-border">
             <div className="gradient-border-inner rounded-[17px]">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-[17px] overflow-hidden">
@@ -170,7 +171,6 @@ export default function HomePage() {
                     </Link>
                   </motion.div>
                 </div>
-                {/* Right — decorative */}
                 <div className="relative hidden md:flex items-center justify-center bg-[rgba(124,58,237,0.04)] border-l border-white/5 p-12">
                   <motion.div custom={1} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                     className="relative w-64 h-64">
@@ -180,13 +180,13 @@ export default function HomePage() {
                       animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} />
                     <div className="absolute inset-20 rounded-full bg-gradient-to-br from-violet-600/20 to-blue-600/20 flex flex-col items-center justify-center border border-[rgba(124,58,237,0.25)] backdrop-blur-sm">
                       <Sparkles className="w-8 h-8 text-violet-400 mb-1" />
-                      <span className="font-display text-white text-xs font-bold text-center leading-tight">Pixel<br/>Perfect</span>
+                      <span className="font-display text-white text-xs font-bold text-center leading-tight">Pixel<br />Perfect</span>
                     </div>
                     {[0, 90, 180, 270].map((deg) => (
                       <motion.div key={deg}
                         className="absolute w-3 h-3 rounded-full bg-gradient-to-br from-violet-500 to-blue-500"
                         style={{
-                          top: `calc(50% - 6px + ${Math.sin((deg * Math.PI) / 180) * 112}px)`,
+                          top:  `calc(50% - 6px + ${Math.sin((deg * Math.PI) / 180) * 112}px)`,
                           left: `calc(50% - 6px + ${Math.cos((deg * Math.PI) / 180) * 112}px)`,
                           boxShadow: "0 0 12px rgba(124,58,237,0.8)",
                         }}
@@ -202,11 +202,11 @@ export default function HomePage() {
       </section>
 
       {/* ══ TESTIMONIALS ══ */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="orb orb-pink w-[350px] h-[350px] right-0 top-0 opacity-15" />
-        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className={CONTAINER}>
           <motion.div custom={0} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="text-center mb-16">
+            className="text-center mb-14">
             <span className="section-badge"><Star className="w-3 h-3" /> Testimonials</span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[-0.04em]">
               What Our <span className="gradient-text-warm">Clients Say</span>
@@ -235,10 +235,10 @@ export default function HomePage() {
       </section>
 
       {/* ══ CTA ══ */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="orb orb-violet w-[600px] h-[600px] left-1/4 -top-48 opacity-25" />
         <div className="orb orb-blue   w-[300px] h-[300px] right-1/4 bottom-0 opacity-15" />
-        <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
+        <div className="max-w-4xl mx-auto px-6 sm:px-10 text-center">
           <motion.div custom={0} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <div className="flex justify-center mb-10">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center shadow-[0_0_40px_rgba(124,58,237,0.5)]" style={{ animation: "pulse-glow 3s ease-in-out infinite" }}>

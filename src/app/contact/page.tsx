@@ -72,16 +72,16 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen pt-28 pb-28 relative overflow-hidden">
+    <div className="min-h-screen pt-36 pb-28 relative overflow-hidden">
       <div className="orb orb-purple w-96 h-96 -top-20 -left-20 opacity-30" />
       <div className="orb orb-cyan   w-80 h-80 bottom-20 right-0  opacity-20" />
 
-      <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-14">
 
         {/* Header */}
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-20">
           <span className="section-badge"><MessageSquare className="w-3 h-3" /> Contact</span>
-          <h1 className="font-display tracking-display text-5xl md:text-6xl font-black mb-6">
+          <h1 className="font-display text-5xl md:text-6xl font-black mb-5">
             Let&apos;s <span className="gradient-text">Talk</span>
           </h1>
           <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto leading-relaxed">
