@@ -89,11 +89,11 @@ export default function OrderPage() {
   }
 
   return (
-    <div className="min-h-screen pt-36 pb-32 relative overflow-hidden">
+    <div className="min-h-screen pt-28 pb-28 relative overflow-hidden">
       <div className="orb orb-purple w-96 h-96 -top-20 -left-20 opacity-30" />
       <div className="orb orb-blue   w-80 h-80 bottom-0 right-0   opacity-20" />
 
-      <div className="max-w-6xl mx-auto px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
 
         {/* Header */}
         <motion.div initial="hidden" animate="visible" variants={fadeUp} className="text-center mb-20">

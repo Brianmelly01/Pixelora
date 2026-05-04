@@ -13,10 +13,10 @@ const services = [
 ];
 
 const stats = [
-  { value: "500+",   label: "Happy Clients",      icon: Users, color: "text-violet-400" },
-  { value: "1,200+", label: "Projects Done",       icon: Award, color: "text-blue-400" },
-  { value: "48h",    label: "Avg. Turnaround",     icon: Clock, color: "text-cyan-400" },
-  { value: "4.9★",   label: "Client Rating",       icon: Star,  color: "text-amber-400" },
+  { value: "500+",   label: "Happy Clients",   icon: Users, color: "text-violet-400" },
+  { value: "1,200+", label: "Projects Done",    icon: Award, color: "text-blue-400" },
+  { value: "48h",    label: "Avg. Turnaround",  icon: Clock, color: "text-cyan-400" },
+  { value: "4.9★",   label: "Client Rating",    icon: Star,  color: "text-amber-400" },
 ];
 
 const whyUs = [
@@ -29,8 +29,8 @@ const whyUs = [
 ];
 
 const testimonials = [
-  { name: "Amara Osei",       role: "CEO, NovaBrand",   text: "Pixelora completely transformed our brand identity. The attention to detail and speed of delivery is absolutely unmatched.",          grad: "from-violet-600 to-blue-600",  av: "AO" },
-  { name: "James Mwangi",     role: "Event Organiser",  text: "Ordered 300 custom t-shirts for our festival. Quality was incredible, delivery was on time, and the team was a joy to work with.",    grad: "from-blue-600 to-cyan-500",    av: "JM" },
+  { name: "Amara Osei",       role: "CEO, NovaBrand",   text: "Pixelora completely transformed our brand identity. The attention to detail and speed of delivery is absolutely unmatched.",         grad: "from-violet-600 to-blue-600",  av: "AO" },
+  { name: "James Mwangi",     role: "Event Organiser",  text: "Ordered 300 custom t-shirts for our festival. Quality was incredible, delivery was on time, and the team was a joy to work with.",   grad: "from-blue-600 to-cyan-500",    av: "JM" },
   { name: "Fatima Al-Rashid", role: "Fashion Designer", text: "They understood my vision perfectly on the first try. Their creative instinct is rare. I will be working with Pixelora again and again.", grad: "from-pink-600 to-violet-600",  av: "FA" },
 ];
 
@@ -38,11 +38,8 @@ export default function HomePage() {
   return (
     <div className="min-h-screen overflow-x-hidden">
 
-      {/* ══════════════════════════════════════════════════════
-          HERO
-      ══════════════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6 pt-28 pb-16">
-        {/* Ambient background */}
+      {/* ══ HERO ══ */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden px-6 pt-32 pb-20">
         <div className="orb orb-violet  w-[700px] h-[700px] top-[-250px] left-[-180px] opacity-35" />
         <div className="orb orb-blue   w-[550px] h-[550px] top-[-150px] right-[-160px] opacity-25" />
         <div className="orb orb-pink   w-[350px] h-[350px] bottom-[-80px] left-1/2 -translate-x-1/2 opacity-20" />
@@ -51,32 +48,28 @@ export default function HomePage() {
         <div className="noise" />
 
         <div className="relative z-10 max-w-5xl mx-auto w-full">
-          {/* Badge */}
           <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible" className="flex justify-center">
             <span className="section-badge">
               <Sparkles className="w-3 h-3" />
-              Creative Design &amp; Printing Studio · Nairobi
+              Creative Design & Printing Studio · Nairobi
             </span>
           </motion.div>
 
-          {/* Headline */}
           <motion.h1 custom={1} variants={fadeUp} initial="hidden" animate="visible"
-            className="font-display text-[3.5rem] sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] font-extrabold leading-[0.95] tracking-[-0.04em] mb-8 text-balance">
+            className="font-display text-[3.2rem] sm:text-[4.8rem] md:text-[6rem] lg:text-[7rem] font-extrabold leading-[0.95] tracking-[-0.04em] mb-8 text-balance">
             From{" "}
             <span className="gradient-text">Pixel</span>
             <br />to Product
           </motion.h1>
 
-          {/* Sub */}
           <motion.p custom={2} variants={fadeUp} initial="hidden" animate="visible"
             className="text-[var(--text-muted)] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-body">
             We transform your boldest ideas into stunning physical products.
-            Custom clothing, branding, merch &amp; creative designs — all under one roof.
+            Custom clothing, branding, merch & creative designs — all under one roof.
           </motion.p>
 
-          {/* CTAs */}
           <motion.div custom={3} variants={fadeUp} initial="hidden" animate="visible"
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-24">
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
             <Link href="/order" className="btn-gradient px-10 py-4 rounded-full text-[0.95rem]">
               <span className="flex items-center gap-2">Start Your Project <ArrowRight className="w-4 h-4" /></span>
             </Link>
@@ -85,11 +78,10 @@ export default function HomePage() {
             </Link>
           </motion.div>
 
-          {/* Stats strip */}
           <motion.div custom={4} variants={fadeUp} initial="hidden" animate="visible"
             className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
             {stats.map(({ value, label, icon: Icon, color }) => (
-              <div key={label} className="glass-card px-6 py-7 flex flex-col items-center text-center group hover:scale-[1.04] cursor-default">
+              <div key={label} className="glass-card px-5 py-7 flex flex-col items-center text-center group hover:scale-[1.04] cursor-default">
                 <Icon className={`w-5 h-5 ${color} mb-4`} />
                 <span className="font-display text-3xl font-extrabold gradient-text tracking-[-0.03em] mb-1">{value}</span>
                 <span className="text-[var(--text-faint)] text-xs font-body">{label}</span>
@@ -98,9 +90,8 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* Scroll cue */}
         <motion.div
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2.4, ease: "easeInOut" }}>
           <div className="w-px h-12 bg-gradient-to-b from-transparent via-[rgba(124,58,237,0.7)] to-transparent" />
@@ -108,17 +99,15 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          SERVICES PREVIEW
-      ══════════════════════════════════════════════════════ */}
-      <section className="relative py-36 overflow-hidden">
+      {/* ══ SERVICES ══ */}
+      <section className="relative py-28 overflow-hidden">
         <div className="orb orb-blue w-[400px] h-[400px] -right-20 top-20 opacity-18" />
-        <div className="max-w-6xl mx-auto px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
 
           <motion.div custom={0} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="text-center mb-20">
+            className="text-center mb-18">
             <span className="section-badge"><Zap className="w-3 h-3" /> What We Do</span>
-            <h2 className="font-display text-5xl md:text-6xl font-extrabold tracking-[-0.04em] mb-5">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[-0.04em] mb-5">
               Services Built for <br className="hidden sm:block" />
               <span className="gradient-text">Creators</span>
             </h2>
@@ -127,19 +116,16 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((s, i) => (
               <motion.div key={s.title} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                className="glass-card p-9 lg:p-11 relative overflow-hidden group cursor-default">
-                {/* Glow hover */}
+                className="glass-card p-8 lg:p-10 relative overflow-hidden group cursor-default">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[18px]"
                   style={{ background: `radial-gradient(circle at 25% 35%, ${s.glow}, transparent 65%)` }} />
-                {/* Tag */}
-                <span className="absolute top-7 right-7 text-[0.68rem] font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">
+                <span className="absolute top-6 right-6 text-[0.68rem] font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70">
                   {s.tag}
                 </span>
-                {/* Icon */}
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.4)]`}>
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-7 group-hover:scale-110 transition-transform duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.4)]`}>
                   <s.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="font-display text-2xl font-bold mb-3">{s.title}</h3>
@@ -153,28 +139,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          WHY US
-      ══════════════════════════════════════════════════════ */}
-      <section className="relative py-36 overflow-hidden">
+      {/* ══ WHY US ══ */}
+      <section className="relative py-28 overflow-hidden">
         <div className="orb orb-cyan w-[380px] h-[380px] -left-20 top-0 opacity-15" />
-        <div className="max-w-6xl mx-auto px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
           <div className="gradient-border">
             <div className="gradient-border-inner rounded-[17px]">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-[17px] overflow-hidden">
-                {/* Left */}
-                <div className="p-12 lg:p-16">
+                <div className="p-10 lg:p-14">
                   <motion.div custom={0} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                     <span className="section-badge"><Star className="w-3 h-3" /> Why Pixelora</span>
-                    <h2 className="font-display text-4xl md:text-5xl font-extrabold tracking-[-0.04em] mb-6 leading-tight">
+                    <h2 className="font-display text-4xl md:text-5xl font-extrabold tracking-[-0.04em] mb-5 leading-tight">
                       We Don&apos;t Just Print.
                       <br /><span className="gradient-text">We Create.</span>
                     </h2>
-                    <p className="text-[var(--text-muted)] text-base leading-relaxed mb-10">
+                    <p className="text-[var(--text-muted)] text-base leading-relaxed mb-8">
                       5+ years delivering pixel-perfect results for brands across Africa and beyond.
                       Fast, collaborative, and obsessively quality-focused.
                     </p>
-                    <ul className="space-y-4 mb-10">
+                    <ul className="space-y-3.5 mb-9">
                       {whyUs.map((item) => (
                         <li key={item} className="flex items-center gap-3 text-sm text-[var(--text-muted)]">
                           <CheckCircle2 className="w-4 h-4 text-[var(--brand-purple-soft)] flex-shrink-0" />
@@ -218,20 +201,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          TESTIMONIALS
-      ══════════════════════════════════════════════════════ */}
-      <section className="relative py-36 overflow-hidden">
+      {/* ══ TESTIMONIALS ══ */}
+      <section className="relative py-28 overflow-hidden">
         <div className="orb orb-pink w-[350px] h-[350px] right-0 top-0 opacity-15" />
-        <div className="max-w-6xl mx-auto px-8 lg:px-12">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
           <motion.div custom={0} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
             className="text-center mb-16">
             <span className="section-badge"><Star className="w-3 h-3" /> Testimonials</span>
-            <h2 className="font-display text-5xl md:text-6xl font-extrabold tracking-[-0.04em]">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-[-0.04em]">
               What Our <span className="gradient-text-warm">Clients Say</span>
             </h2>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <motion.div key={t.name} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 className="glass-card p-8 flex flex-col gap-5 relative overflow-hidden group">
@@ -253,20 +234,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          CTA
-      ══════════════════════════════════════════════════════ */}
-      <section className="relative py-36 overflow-hidden">
+      {/* ══ CTA ══ */}
+      <section className="relative py-28 overflow-hidden">
         <div className="orb orb-violet w-[600px] h-[600px] left-1/4 -top-48 opacity-25" />
         <div className="orb orb-blue   w-[300px] h-[300px] right-1/4 bottom-0 opacity-15" />
-        <div className="max-w-4xl mx-auto px-8 text-center">
+        <div className="max-w-4xl mx-auto px-6 md:px-10 text-center">
           <motion.div custom={0} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <div className="flex justify-center mb-10">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center shadow-[0_0_40px_rgba(124,58,237,0.5)]" style={{ animation: "pulse-glow 3s ease-in-out infinite" }}>
                 <Sparkles className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h2 className="font-display text-5xl md:text-7xl font-extrabold tracking-[-0.04em] mb-7 text-balance leading-tight">
+            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] mb-7 text-balance leading-tight">
               Ready to bring your<br />
               <span className="gradient-text">vision</span> to life?
             </h2>

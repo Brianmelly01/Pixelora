@@ -22,11 +22,11 @@ const process = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen pt-36 pb-32 relative overflow-hidden">
+    <div className="min-h-screen pt-28 pb-28 relative overflow-hidden">
       <div className="orb orb-purple w-96 h-96 -top-20 -left-20 opacity-30" />
       <div className="orb orb-blue   w-96 h-96 top-60 -right-20 opacity-20" />
 
-      <div className="max-w-6xl mx-auto px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-16">
 
         {/* Header */}
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center mb-24">
@@ -90,7 +90,7 @@ export default function ServicesPage() {
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative mb-24">
+        <div className="relative mb-20">
           <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-[rgba(147,51,234,0.35)] to-transparent" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
             {process.map((step, i) => (
