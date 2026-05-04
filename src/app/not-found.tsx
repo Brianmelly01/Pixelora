@@ -17,17 +17,11 @@ export default function NotFound() {
         className="text-center relative z-10 max-w-lg"
       >
         {/* 404 Number */}
-        <div
-          className="text-[120px] md:text-[160px] font-black leading-none gradient-text select-none mb-2"
-          style={{ fontFamily: "Outfit, sans-serif" }}
-        >
+        <div className="font-display text-[120px] md:text-[160px] font-black leading-none gradient-text select-none mb-2">
           404
         </div>
 
-        <h1
-          className="text-3xl md:text-4xl font-bold text-white mb-4"
-          style={{ fontFamily: "Outfit, sans-serif" }}
-        >
+        <h1 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
           Page Not Found
         </h1>
         <p className="text-gray-400 text-lg mb-10 leading-relaxed">

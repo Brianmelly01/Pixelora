@@ -29,7 +29,7 @@ export default function Footer() {
     <footer className="relative border-t border-[rgba(147,51,234,0.12)] bg-[#040010] overflow-hidden">
       <div className="orb orb-purple w-[500px] h-[500px] -bottom-60 -left-32 opacity-20" />
       <div className="orb orb-blue   w-[400px] h-[400px] -bottom-48 right-0 opacity-12" />
-      <div className="noise-overlay" />
+      <div className="noise" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-8 lg:px-12 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
